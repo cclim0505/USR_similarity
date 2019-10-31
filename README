@@ -1,0 +1,11 @@
+# HOW TO USE
+
+Configure session_in.dat:
+
+	Specify reference structure, one(1) only
+
+	Specify target structure, can be multiple inputs and the SAME ATOMIC SIZE as reference structure
+
+	Specify name of output file
+
+Run USR.out

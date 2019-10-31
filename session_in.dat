@@ -1,0 +1,4 @@
+reference_struc_xyz_file		sample_Au15_left.xyz
+target_struc_xyz_file			sample_AuAu_015_dynamics.xyz
+output_file				output_similarity.dat
+
