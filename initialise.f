@@ -150,8 +150,8 @@
         REAL(KIND=DBL),DIMENSION(:),ALLOCATABLE       :: f2f_dist !distance vectors for far to far
         REAL(KIND=DBL)  :: close_dist, far_dist     ! closest and farthest distance from centroid
         REAL(KIND=DBL)  :: far_far_dist                 ! farthest to farthest distance
-        REAL            :: difference
-        REAL            :: interval = 1E-10_DBL
+        REAL(KIND=DBL)  :: difference
+        REAL(KIND=DBL)  :: interval = 1E-10_DBL
 
         IF (ALLOCATED(centroid_diff)) DEALLOCATE (centroid_diff)
         IF (ALLOCATED(centroid_dist)) DEALLOCATE (centroid_dist)
@@ -338,7 +338,6 @@
 ! calculate target structure's 16 moment values
         IMPLICIT NONE
         REAL(KIND=DBL),DIMENSION(16),INTENT(OUT)  :: moment       ! array to hold mu values of reference and target structures
-        INTEGER         :: iter
         REAL(KIND=DBL),DIMENSION(4)      :: mu_val
 
         CALL calc_centroid
@@ -375,7 +374,6 @@
 
         SUBROUTINE calc_similarity
         IMPLICIT NONE
-        INTEGER         :: iter
         REAL(KIND=DBL),DIMENSION(16)  :: denom
         REAL(KIND=DBL)                :: denom_sum
 
