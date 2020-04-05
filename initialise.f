@@ -54,7 +54,7 @@
 
         CALL read_coord(ref_struc_file)
         CALL compute_struc_moments(ref_mu)
-        timestep = 0 
+!        timestep = 0 
 
 
         OPEN(40,file=target_struc_file,status='old')
@@ -62,8 +62,8 @@
           READ(40,*,iostat=ierr) atoms
           IF(ierr /= 0) EXIT
           counter = counter + 1
-          timestep = timestep + 50
-          READ(40,*) 
+!          timestep = timestep + 50
+          READ(40,*) dummy, dummy, timestep
           IF (ALLOCATED(coord)) DEALLOCATE(coord)
           ALLOCATE(coord(atoms,3))
           DO iter=1,atoms
