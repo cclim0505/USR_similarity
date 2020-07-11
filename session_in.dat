@@ -1,4 +1,6 @@
 reference_struc_xyz_file		sample_Au15_left.xyz
 target_struc_xyz_file			sample_AuAu_015_dynamics.xyz
-output_file				output_similarity.dat
+output_file		        		output_similarity.dat
+job_type                        1           1:simil calc, 2:find uniq
+
 
