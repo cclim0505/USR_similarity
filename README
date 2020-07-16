@@ -8,4 +8,10 @@ Configure session_in.dat:
 
 	Specify name of output file
 
+    Specify the job type: 
+    1) similarity calculation wrt a reference structure
+    2) find unique structures from a set of given structures
+
+    Specify the number of maximum unique structures programme wants to calculate
+
 Run USR.out
