@@ -2,7 +2,7 @@ PROG =	USR.out
 
 SRCS =  
 
-OBJS =  constants.o initialise.o simil.o simulate.o main.o
+OBJS =  constants.o initialise.o simil.o unique.o simulate.o main.o
 
 ### gfortran options
 LIBS =

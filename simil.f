@@ -1,13 +1,12 @@
         MODULE simil
         USE constants       ,ONLY: DBL
-        USE initialise      ,ONLY: atoms, coord
+        USE initialise      ,ONLY: atoms, coord,timestep
 ! Global calculation values (coordinates of mu points and mu values)
         REAL(KIND=DBL),DIMENSION(3)  :: centroid                ! centroid
         REAL(KIND=DBL),DIMENSION(3)  :: close_ctd, far_ctd      ! closest and farthest atoms to centroid
         REAL(KIND=DBL),DIMENSION(3)  :: far_far                 ! farthest atom to farthest atom (f2f)
         REAL(KIND=DBL),DIMENSION(16)  :: ref_mu, target_mu      ! array to hold mu values of reference and target structures
         REAL(KIND=DBL)               :: similarity              ! similarity index
-        INTEGER                      :: timestep
 
 ! Similarity subroutines.
         PUBLIC   :: compute_struc_moments
@@ -60,12 +59,13 @@
 
         END SUBROUTINE compute_struc_moments
 
-        SUBROUTINE calc_similarity
+        SUBROUTINE calc_similarity(mu_1, mu_2)
         IMPLICIT NONE
+        REAL(KIND=DBL),DIMENSION(16),INTENT(IN)     :: mu_1, mu_2
         REAL(KIND=DBL),DIMENSION(16)  :: denom
         REAL(KIND=DBL)                :: denom_sum
 
-        denom = ABS(ref_mu - target_mu)
+        denom = ABS(mu_1 - mu_2)
         denom_sum = SUM(denom)
         denom_sum = denom_sum / 16.0_DBL
         denom_sum = denom_sum + 1.0_DBL
@@ -73,9 +73,9 @@
         similarity = denom_sum
 
 
-        PRINT *, ''
-        PRINT *, 'similarity index', similarity
-        PRINT *, ''
+!        PRINT *, ''
+!        PRINT *, 'similarity index', similarity
+!        PRINT *, ''
         END SUBROUTINE calc_similarity
 
         SUBROUTINE calc_centroid
